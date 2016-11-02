@@ -3,13 +3,13 @@ apply plugin: 'eclipse'
 apply plugin: "com.github.hierynomus.license"
 apply plugin: 'nebula.ospackage-base'
 
-sourceCompatibility = 1.7
+sourceCompatibility = 1.8
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.9'
 }
 
-repositories { 
+repositories {
     mavenCentral()
     jcenter()
 }
@@ -74,7 +74,7 @@ task packDeb(type: Deb, dependsOn: fatJar) {
   version = '1'
   release '1'
 
-  requires('openjdk-7-jre-headless')
+  requires('openjdk-8-jre-headless')
   from('build/libs/.') {
     into "/opt/${project.name}"
   }
@@ -99,5 +99,3 @@ task packDeb(type: Deb, dependsOn: fatJar) {
   }
 
 }
-
-
